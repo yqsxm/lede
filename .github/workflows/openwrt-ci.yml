@@ -91,8 +91,15 @@ jobs:
           # 编译x32固件:
           cat >> .config <<EOF
           CONFIG_TARGET_x86=y
-          CONFIG_TARGET_x86_Generic=y
-          CONFIG_TARGET_x86_Generic_Generic=y
+          CONFIG_TARGET_x86_generic=y
+          CONFIG_TARGET_x86_generic_Generic=y
+          CONFIG_HAS_SUBTARGETS=y
+          CONFIG_TARGET_BOARD="x86"
+          CONFIG_TARGET_SUBTARGET="generic"
+          CONFIG_TARGET_PROFILE="Generic"
+          CONFIG_TARGET_ARCH_PACKAGES="i386_pentium4"
+          CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -march=pentium4"
+          CONFIG_CPU_TYPE="pentium4"
           EOF
           # 固件压缩:
           # cat >> .config <<EOF
